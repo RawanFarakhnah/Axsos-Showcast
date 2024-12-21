@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Profile Picture */
+        #profile-pic {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        #profile-pic img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #333;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Social Links */
+        .social-links {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .social-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #0073b1;
+            font-weight: bold;
+        }
+
+        .social-links img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        /* Table */
+        .table-container {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Project Section */
+        .project-section {
+            margin-top: 30px;
+        }
+
+        .project {
+            text-align: center;
+        }
+
+        .project img {
+            width: 100px;
+            height: 100px;
+            margin: 10px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            margin-top: 30px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .contact-form input, 
+        .contact-form textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            resize: vertical; /* Allows vertical resizing only */
+            min-height: 100px;
+            max-height: 300px;
+            background-color: #f9f9f9;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #0073b1;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #005f90;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rawan Farakhna</h1>
+        <div id="profile-pic">
+            <img src="https://via.placeholder.com/100" alt="Avatar">
+        </div>
+        <div class="social-links">
+            <a href="#" title="GitHub">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Icon"> my GitHub
+            </a>
+            |
+            <a href="#" title="LinkedIn">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon"> my LinkedIn
+            </a>
+            |
+            <a href="mailto:example@example.com" title="Email">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon"> my Email
+            </a>
+        </div>
+
+        <div class="table-container">
+            <h2>Technologies</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Front-End</th>
+                        <th>Python</th>
+                        <th>JavaScript</th>
+                        <th>Database</th>
+                        <th>Concepts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HTML5</td>
+                        <td>Django</td>
+                        <td>Express</td>
+                        <td>MySQL</td>
+                        <td>AJAX</td>
+                    </tr>
+                    <tr>
+                        <td>CSS3</td>
+                        <td>Flask</td>
+                        <td>Mongoose</td>
+                        <td>MongoDB</td>
+                        <td>OOP</td>
+                    </tr>
+                    <tr>
+                        <td>Bootstrap</td>
+                        <td>Unittest</td>
+                        <td>React</td>
+                        <td></td>
+                        <td>REST</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="project-section">
+            <h2>Social Snakes</h2>
+            <div class="project">
+                <p>Social Media App made in Python - 
+                    <a href="#">code</a> | 
+                    <a href="#">deployed</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Contact Me</h2>
+            <form action="https://example.com/submit" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  line-height: 1.6;
+  background-color: #f4f4f4; /* Subtle background color */
+  color: #333; /* Darker text for readability */
+  padding: 20px;
+}
+
+#container {
+  background-color: rgb(227, 231, 231);
+  min-height: 910px;
+  padding: 20px;
+  border-radius: 15px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for a lifted effect */
+  max-width: 800px; /* Limits container width for readability */
+  margin: 0 auto; /* Centering the container */
+  background: linear-gradient(
+    135deg,
+    #e3e7e7,
+    #ffffff
+  ); /* Soft gradient for modern look */
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(78, 76, 76);
+  margin-bottom: 20px; /* Space between the heading and other content */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+h1:hover,
+h2:hover {
+  color: #0056b3; /* Change to a deep blue on hover */
+}
+
+@media (max-width: 768px) {
+  #container {
+    padding: 15px; /* Less padding on smaller screens */
+  }
+
+  h1 {
+    font-size: 36px; /* Smaller heading size on mobile */
+  }
+
+  h2 {
+    font-size: 28px; /* Smaller subheading size on mobile */
+  }
+}

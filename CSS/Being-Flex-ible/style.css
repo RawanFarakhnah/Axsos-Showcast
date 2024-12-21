@@ -1,0 +1,32 @@
+.row{
+    display: flex;
+}
+
+/* flex-basis mean prefare width [ideal size] */
+.col{
+    flex: 1 1 0%;  /* flex-grow: 1; flex-shrink: 1; flex-basis: 100px; */
+    /* flex: 1 1 auto;  */ /* Base size depends on content. */
+    margin:10px;
+    padding: 20px;
+    background-color: lightcyan;
+}
+
+.col-2{
+    flex:2;
+    margin:10px;
+    padding: 20px;
+    background-color: palegreen;
+}
+
+.col-3{
+    flex:3;
+    margin:10px;
+    padding: 20px;
+    background-color: salmon ;
+}
+
+/*
+This can be confusing, but align-content determines the spacing between lines,
+while align-items determines how the items as a whole are aligned within the container.
+When there is only one line, align-content has no effect.
+*/

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+   <!-- //TODO: use nav tag + ul  -->
+  <header class="navbar">
+    <div class="nav-links">
+      <h1 class="logo">Profile</h1>
+      <a href="#">Home</a>
+      <a href="#" class="active">My Profile</a>
+      <a href="#">Find Connections</a>
+      <button class="sign-out">Sign Out</button>
+    </div>
+  </header>
+  <div class="container">
+    <!-- MAIN container -->
+    <main id="main-container">
+       <section id="profile-section">
+          <div class="profile-card">
+            <div class="background-image"></div>
+            <div class="profile-picture-container">
+              <img src="icons/user-circle.png" 
+                     alt="Photo of Rawan Farakhna" class="profile-picture">
+            </div>
+            <div class="profile-card-details">
+              <h3 class="profile-card-name">Rawan Farakhna</h3>
+                <p class="card-location">
+                  <img src="icons/map-marker.png" alt="Location Icon" class="icon"> Ramallah
+                </p>
+                <p class="card-headline">
+                  Problem Solving | Full Stack Development | MERN Stack | Building Scalable, User-Focused Solutions with a Positive Impact
+                </p>
+                <a href="#" class="edit-profile-link">
+                  <img src="./icons/gear.png" alt="Edit Icon" class="icon"> Edit Profile
+                </a>
+            </div>
+          </div>
+       </section>
+
+       <section id="edication-section">
+          <div class="card">
+              <div class="card-header">
+                <h4 class="card-title pl-12">Edication</h4>
+              </div>
+              <div class="card-body">
+                <div class="card-content pt-10">
+                  <div class="pl-12 line-height">
+                    <p><strong>Coding Dojo - Full Stack Bootcamp</strong><br> <span class="gray-color">Dec 2019 - Mar 2020</span></p>
+                     <p>Triple black belt in Python, MERN, and C#.</p>
+                  </div>
+                </div>
+                <hr class="separator">
+                <div class="card-content pt-10">
+                  <div class="pl-12 line-height">
+                    <p><strong>Coding Dojo - Full Stack Bootcamp</strong><br> <span class="gray-color">Dec 2019 - Mar 2020</span></p>
+                     <p>Triple black belt in Python, MERN, and C#.</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+       </section>
+    </main>
+
+    <!-- ASIDE sidebar -->
+    <aside id="sidebar">
+      <!-- Connection Section -->
+       <section id="connection-section">
+        <div class="card">
+          <div class="card-header">
+            <button class="rounded-btn black-text">2</button>
+            <h4 class="card-title"> Connection Requests</h4>
+          </div>
+          <div class="card-body">
+            <div class="card-content">
+             
+              <span class="profile-picture-side"> <img src="icons/user-circle.png" 
+                alt="Avatar Photo" class="profile-picture">
+              </span>
+              <!-- //TODO: use header insted span -->
+              <span class="side-card-name">Todd E</span>
+              <button class="accept rounded-btn">✔</button>
+              <button class="decline rounded-btn">✖</button>
+            </div>
+            <div class="card-content ">
+              <span class="profile-picture-side"> <img src="icons/user-circle.png" 
+                alt="Avatar Photo" class="profile-picture">
+              </span>
+              <span class="side-card-name">Phil K</span>
+              <button class="accept rounded-btn">✔</button>
+              <button class="decline rounded-btn">✖</button>
+            </div>
+          </div>
+        </div>
+       </section>
+      
+       <!-- Your Connection Section -->
+       <section id="your-connection-section">
+         <div class="card">
+           <div class="card-header">
+            <button class="rounded-btn black-text">+500</button>
+            <h4 class="card-title">Your Connections</h4>
+           </div>
+           <div class="card-body">
+            <div class="card-content">
+              <span class="profile-picture-side"> <img src="icons/user-circle.png" 
+                alt="Avatar Photo" class="profile-picture">
+              </span>
+              <span class="side-card-name">Adrien D</span>
+            </div>
+            <div class="card-content">
+              <span class="profile-picture-side"> <img src="icons/user-circle.png" 
+                alt="Avatar Photo" class="profile-picture">
+              </span>
+              <span class="side-card-name">Anne J</span>
+            </div>
+            <div class="card-content">
+              <span class="profile-picture-side"> <img src="icons/user-circle.png" 
+                alt="Avatar Photo" class="profile-picture">
+              </span>
+              <span class="side-card-name">Aloyne T</span>
+            </div>
+            <div class="card-content">
+              <span class="profile-picture-side"> <img src="icons/user-circle.png" 
+                alt="Avatar Photo" class="profile-picture">
+              </span>
+              <span class="side-card-name">Arry Y</span>
+            </div>
+            <hr class="separator"/>
+            <div class="card-content">
+               <a href="#" class="view-more" >View More</a>
+            </div>
+           </div>
+         </div>
+       </section>
+    </aside>
+  </div>
+
+</body>
+</html>

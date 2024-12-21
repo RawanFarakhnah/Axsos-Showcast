@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+}
+
+.container {
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: darkmagenta;
+  color: white;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: rebeccapurple;
+  transform: translateY(-2px);
+}
+
+.gray-btn {
+  background-color: lightslategray;
+}
+
+.gray-btn:hover {
+  background-color: gray;
+}
+
+img {
+  width: 150px;
+  height: 200px;
+  padding: 10px;
+  object-fit: cover;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.15);
+  margin: 10px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  cursor: pointer;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+section {
+  width: 100%;
+  background-color: #f9fafb;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+section:hover {
+  background-color: #f0f4f8;
+  transition: background-color 0.3s ease;
+}

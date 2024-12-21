@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%; /* Make sure the body and html elements take the full height */
+}
+
+section {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  height: 100vh; /* Each section takes the full viewport height */
+}
+
+.container {
+  width: 500px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.item {
+  background-color: gray;
+  padding: 50px;
+  border-radius: 8px;
+  width: 100px;
+  height: 100px;
+}
+
+.item-1 {
+  width: 100px; /* Set width of .item-1 */
+  height: 100px; /* Set height of .item-1 */
+  position: absolute;
+  top: -40px;
+  right: -30px;
+  background-color: cyan;
+  /* z-index: 1; */
+}
+
+.item-5 {
+  position: sticky;
+  top: 20px;
+  background-color: salmon;
+}
+
+.item-3 {
+  position: relative;
+  right: 220px;
+}
+
+section:nth-child(1) {
+  background-color: lightblue; /* First section background */
+}
+
+section:nth-child(2) {
+  background-color: #ddd; /* Second section background */
+}
+
+section:nth-child(3) {
+  background-color: lightblue; /* Third section background */
+}

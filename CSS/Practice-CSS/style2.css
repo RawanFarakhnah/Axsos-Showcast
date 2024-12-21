@@ -1,0 +1,32 @@
+.green {
+  color: mediumseagreen;
+}
+#red {
+  color: tomato;
+}
+
+input {
+  padding: 5px;
+  border-color: rebeccapurple;
+  border-radius: 2px;
+}
+
+input[type="text"] {
+  border: none;
+  border-bottom: 2px solid rebeccapurple;
+}
+
+input[type="submit"] {
+  color: white;
+  background-color: rebeccapurple;
+}
+
+p > span {
+  text-decoration: line-through;
+}
+
+ul {
+  display: inline;
+  list-style-type: none;
+  font-style: italic;
+}

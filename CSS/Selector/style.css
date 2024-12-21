@@ -1,0 +1,29 @@
+
+/* This one target direct p inside
+ element class quote  */
+.quote > p {
+    color: rebeccapurple;
+    font-style: italic;
+}
+
+
+/* This one target all child inside
+ element class header  */
+.header img {
+   height: 50px;
+}
+
+input{
+    padding: 5px;
+    border-color: rgb(102, 51, 153);
+}
+
+input[type="text"]{
+    border: none;
+    border-bottom: 2px solid rebeccapurple;
+}
+
+input[type="submit"]{
+    color: white;
+    background-color: rebeccapurple;
+}

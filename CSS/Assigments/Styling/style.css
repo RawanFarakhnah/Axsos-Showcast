@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: cursive, 'Courier New' ,Courier, monospace;
+    margin: 10px;
+    border-radius: 4px;
+}
+
+h1{
+    background-color: black;
+    text-transform: capitalize;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#span-title{
+    color: cyan;
+}
+
+h2{
+    background-color: rebeccapurple;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+h3{
+    background-color:CornflowerBlue;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: right;
+    padding: 10px;
+}

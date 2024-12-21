@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+body {
+    background-color: #deb887; /* Optional: Matches screenshot */
+}
+
+.container{
+    width: 100%;
+    text-align: center;
+}
+
+p {
+    padding: 10px; /* Padding for content */
+    margin: 10px;  /* Margin between paragraphs */
+    /* width: calc((1275.33px - 60px) / 3 - 20px);  */
+    width: 385.11px;
+    background-color: bisque;
+    display: inline-block;
+    vertical-align: top; /* Aligns paragraphs properly */
+}
+
+ul{
+    list-style-type: none;
+    width: 100%;
+    /* align-content: center; */
+}
+
+ul li {
+    width: max-content;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 2px auto;
+    background-color: rgb(19, 128, 92);
+    display: inline-block;
+}

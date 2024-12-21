@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Object Model</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <section>
+        <h2>Console Event</h2>
+        <button id="clickme-btn" onclick="custom(this)">Click Me!</button>
+      </section>
+
+      <section>
+        <h2>Turn Off Event</h2>
+        <button class="gray-btn" onclick="turnOff(this)">On</button>
+        <button class="gray-btn" onclick="turnOff(this)">On</button>
+        <button class="gray-btn" onclick="turnOff(this)">On</button>
+      </section>
+
+      <section>
+        <h2>Hide/Show Event</h2>
+        <img onclick="hide(this)" src="./Images/ninja1.jpg" alt="ninja" />
+        <img onclick="hide(this)" src="./Images/ninja2.jpg" alt="ninja" />
+        <img onclick="hide(this)" src="./Images/ninja3.jpg" alt="ninja" />
+        <img onclick="hide(this)" src="./Images/ninja4.jpg" alt="ninja" />
+        <br />
+        <button class="gray-btn" onclick="refreshPage()">
+          Show (Refresh Page)
+        </button>
+      </section>
+
+      <section class="block" onmouseover="over(this)" onmouseout="out(this)">
+        <h2>More Event</h2>
+        <p>Add additional content or interactions here!</p>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
