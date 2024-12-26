@@ -1,0 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f3f3f3;
+  font-family: "Montserrat", sans-serif;
+  width: 900px;
+  margin: auto;
+}
+
+.nav-container {
+  padding: 20px;
+  background-color: rgb(204, 204, 204);
+  display: flex;
+}
+
+.search {
+  width: 100%;
+  font-size: 1rem;
+  width: 100%;
+  padding: 5px 10px;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin: 0 70px;
+}
+
+.btn {
+  text-transform: capitalize;
+  padding: 5px;
+  color: white;
+  background-color: rgb(44, 119, 227);
+  border: 2px solid black;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.nav-container,
+.flex-container {
+  display: flex;
+}
+
+.nav-container {
+  justify-content: space-between;
+  align-items: center;
+  height: inherit;
+}
+
+.flex-container {
+  margin: 20px auto;
+  gap: 20px;
+}
+
+.col-2 {
+  flex: 3;
+}
+
+.col-1 {
+  flex: 1;
+}
+
+.row {
+  border: 2px solid black;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  padding: 15px;
+}
+
+.add-btn,
+.like-btn {
+  padding: 8px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 4px;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+}
+
+.add-btn {
+  width: 100%;
+  font-weight: bold;
+  background-color: rgb(146, 196, 125);
+}
+
+.like-btn {
+  background-color: rgb(253, 218, 102);
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.bold-text {
+  line-height: 1.5rem;
+  font-weight: bold;
+}

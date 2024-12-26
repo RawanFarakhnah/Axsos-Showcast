@@ -1,0 +1,31 @@
+body { font-family: "Roboto", sans-serif;}
+.label-solid{
+    background-color: rgb(233,233,237);
+    padding: 5px;
+    margin: 0px 4px 0px 4px;
+    border: none;
+    border-radius: 6px;
+}
+
+.custome-dropdown{
+    font-family: "Roboto", sans-serif;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle{
+    padding: 4px;
+    font-family: "Roboto", sans-serif;
+    width: 200px;        
+}
+
+.dropdown-menu{
+    background-color: #e9e9ed;
+    margin: 0 auto;
+    padding: 5px;
+    text-decoration: none;
+
+}

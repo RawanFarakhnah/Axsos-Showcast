@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input and Change</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <div class="custome-dropdown">
+    <label class="label-solid">I would Like to eat</label>
+    <div class="dropdown">
+        <button class="dropdown-toggle">Select an option</button>
+        <ul class="dropdown-menu">
+            <li>Tacos</li>
+            <li>Pasta</li>
+            <li>Sushi</li>
+        </ul>
+    </div>
+ </div>
+
+ <div>
+    <label class="label-solid">I would Like to eat</label>
+    <select id="lunch-selector" onchange="chooseLunch(this)">
+        <option value="">Select an option</option>
+        <option value="Tacos">Tacos</option>
+        <option value="Pasta">Pasta</option>
+        <option value="Sushi">Sushi</option>
+    </select>
+ </div>
+ <div class="output-message"> <b style="display:none;">Italian</b> Pasta</div>
+ <script src="main.js"> </script>
+</body>
+</html>

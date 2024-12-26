@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Clicker</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- top navigation -->
+    <nav class="nav-container">
+      <h1>Dojonary</h1>
+      <input type="text" placeholder="Search" name="filter" class="search" />
+      <button type="button" class="btn" onclick="changeBtn(this)">Login</button>
+    </nav>
+
+    <!-- main container -->
+    <main class="flex-container">
+      <!-- left column -->
+      <div class="col-2">
+        <!-- ninja cards -->
+        <div class="row">
+          <h2>ninja</h2>
+          <div class="flex-container bold-text">
+            <p class="col-1">noun <br />Plural: ninjas</p>
+            <p class="col-2">
+              A practitioner skilled in the <a href="#">Japanese</a> art of
+              <a href="#">ninjustsu</a>
+            </p>
+          </div>
+          <button class="like-btn" onclick="displayAlert()">
+            <span class="count"> 13</span> likes
+          </button>
+        </div>
+
+        <div class="row">
+          <h2>ninja</h2>
+          <div class="flex-container bold-text">
+            <p class="col-1">noun<br />Plural: ninjas</p>
+            <p class="col-2">
+              A <a href="#">programmer</a> who breaks down problems with
+              <a href="#">zen</a>-like focus
+            </p>
+          </div>
+          <button class="like-btn" onclick="displayAlert()">
+            <span class="count"> 37</span> likes
+          </button>
+        </div>
+      </div>
+
+      <!-- right column -->
+      <div class="col-1">
+        <!-- defined cards -->
+        <div class="row">
+          <h4 class="mb-10">Dojonary is defined by You</h4>
+          <button class="add-btn" onclick="removeBtn(this)">
+            Add Definition
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
