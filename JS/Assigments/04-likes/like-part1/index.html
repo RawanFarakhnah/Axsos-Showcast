@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like Part1</title>
+    <link rel="stylesheet" href="styly.css">
+</head>
+<body>
+    <div class="card">
+        <div class="card-title">
+            <h2>Some User</h2>
+            <p>
+              <span class="like-count">3</span> like(s)
+            </p>
+            <button class="like-btn" onclick="addCount('like-count')">Like</button>
+        </div>
+        <div class="card-body">
+            This is some filler text. It can say anything we like.
+        </div>
+    </div>
+    <script>
+         function addCount(elementId) {
+            let _$countElement = document.querySelector(`.${elementId}`);
+            let _$count = _$countElement.innerHTML;
+            _$count++;
+            _$countElement.innerHTML = _$count;
+         }
+    </script>
+</body>
+</html>

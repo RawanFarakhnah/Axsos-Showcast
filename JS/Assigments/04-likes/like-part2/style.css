@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f3f3f3;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.top-nav{
+    background-color: #030303 ;
+    color: #f3f3f3;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.main-container > h2{
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  border-bottom: rgb(220, 215, 215) 1px solid;
+}
+
+.profile-container{
+    display: flex;
+    width: 100%;
+    gap:10px;
+}
+
+.profile-card{
+    border: #030303 solid 1px;
+    border-radius: 8px;
+    margin: 10px 5px;
+    padding-top: 20px;
+    max-height: 200px;
+    width: 100%;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap:15px;    
+}
+
+.image-container{
+    background-color:rgb(167, 161, 161) ;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.profile-image{
+    text-align: center;
+    width: 100%;
+}
+
+.network-container{
+    flex: 3;
+    margin-right: 15px;
+}
+
+.card{
+    border: 1px solid #030303;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+  }
+
+.card-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-title > h2 {
+    margin-right: auto;
+}
+
+
+
+.like-btn{
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: rgb(255, 217, 102);
+    box-shadow: 2px 3px rgba(0,0,0,0.7);
+}
+
+.like-btn:hover {
+    background-color: rgb(240, 200, 85);
+}

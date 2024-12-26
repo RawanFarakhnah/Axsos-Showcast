@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like Part2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <h1>NetWork</h1>
+    </nav>
+    <main class="main-container">
+        <h2> Your Feedback</h2>
+        <div class="profile-container">
+            <!-- profile card -->
+             <div class="profile-card">
+                <div class="image-container">
+                    <img src="icons/user-circle.png" alt="profile-image" class="profile-image">
+                </div>
+                <div class="add-avatar">
+                    <a href="#">Add an avatar</a>
+                </div>
+                <h2>James Doe</h2>
+             </div>
+
+             <!-- network container -->
+             <div class="network-container">
+                <!-- Card Item 1 -->
+                <div class="card">
+                    <div class="card-title">
+                        <h2>Neil M</h2>
+                        <p><span id="counter1" class="like-count">9</span> like(s)</p>
+                        <button onclick="updateCounter('counter1')" class="like-btn">Like</button>
+                    </div>
+                    <div class="card-body">
+                        I just set up this new discord bot, let me know what you all think.<a>link</a>
+                    </div>
+                </div>
+
+                <!-- Card Item 2 -->
+                <div class="card">
+                    <div class="card-title">
+                        <h2>Nichole K</h2>
+                        <p><span id="counter2" class="like-count">12</span> like(s)</p>
+                        <button onclick="updateCounter('counter2')" class="like-btn">Like</button>
+                    </div>
+                    <div class="card-body">
+                        Just Finished my <a>next comic</a>, check it out.
+                    </div>
+                </div>
+
+                <!-- Card Item 3 -->
+                <div class="card">
+                    <div class="card-title">
+                        <h2>Jim R</h2>
+                        <p><span id="counter3" class="like-count">9</span> like(s)</p>
+                        <button onclick="updateCounter('counter3')"  class="like-btn">Like</button>
+                    </div>
+                    <div class="card-body">
+                        I can't stop listening to the <a>new album</a>. Who else is liking it?
+                    </div>
+                </div>
+             </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
