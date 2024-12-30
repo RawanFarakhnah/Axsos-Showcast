@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Al AMeer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav-container">
+        <div class="logo-container">
+          <img width="40px" src="images/logo.png" alt="al-ameer-logo" />
+          <span>
+            <h1 class="nav-title">Al-AMeer</h1>
+            <p>we care your <a href="#">Car</a></p>
+          </span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Service</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><input class="btn" type="button" value="Sign In" /></li>
+        </ul>
+      </nav>
+      <!-- Best Services Container-->
+      <section class="header-card">
+        <div class="header-title">
+          <h1>Best Car Services</h1>
+          <h1>in the town</h1>
+          <button class="btn" onclick="removeButton(this)">Show more</button>
+        </div>
+        <div class="header-body"  onclick="showImage('best-car-image')" >
+          <div class="image-container">
+            <img
+              class="imag best-car-image"
+              src="images/blue-super-car.png"
+              alt="best-car-image"
+            />
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main class="main-container">
+      <section id="our-services">
+        <h4 class="blue-text">Our Services</h4>
+        <!-- our service container -->
+        <div class="container">
+          <!-- booking service card 1 -->
+          <div class="card">
+            <div class="card-title">
+              <div class="card-image" onclick="showImage('image-item1')">
+                <img class="imag image-item1" width="70px" alt="Interior-Washing" src="./icons/InteriorWashing.png" />
+              </div>
+              <div>
+                <h4>Interior Washing</h4>
+                <button class="btn book-btn" onclick="onBooking('count-1')">
+                  Book Now
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <span id="count-1">3</span> Apointement Available
+            </div>
+          </div>
+
+          <!-- booking service card 2 -->
+          <div class="card">
+            <div class="card-title">
+              <div class="card-image" onclick="showImage('image-item2')">
+                <img class="imag image-item2"  width="70px" alt="Seats-Washing" src="./icons/SeatsWashing.png" />
+              </div>
+              <div>
+                <h4>Seats Washing</h4>
+                <button class="btn book-btn" onclick="onBooking('count-2')">
+                  Book Now
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <span id="count-2">3</span> Apointement Available
+            </div>
+          </div>
+
+          <!-- booking service card 3 -->
+          <div class="card">
+            <div class="card-title">
+              <div class="card-image" onclick="showImage('image-item3')">
+                <img class="imag image-item3"  width="70px"  alt="Oil-Changing" src="./icons/OilChanging.png" />
+              </div>
+              <div>
+                <h4>Oil Changing</h4>
+                <button class="btn book-btn" onclick="onBooking('count-3')">
+                  Book Now
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <span id="count-3">3</span> Apointement Available
+            </div>
+          </div>
+
+          <!-- booking service card 4 -->
+          <div class="card">
+            <div class="card-title">
+              <div class="card-image" onclick="showImage('image-item4')">
+                <img class="imag image-item4"  width="70px" alt="vacuum-cleaning" src="./icons/VacuumCleaning.png" />
+              </div>
+              <div>
+                <h4>Vacuum Cleaning</h4>
+                <button class="btn book-btn" onclick="onBooking('count-4')">
+                  Book Now
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <span id="count-4">3</span> Apointement Available
+            </div>
+          </div>
+
+          <!-- booking service card 5 -->
+          <div class="card">
+            <div class="card-title">
+              <div class="card-image" onclick="showImage('image-item5')">
+                <img class="imag image-item5"  width="70px" alt="exterior-washing" src="./icons/ExteriorWashing.png" />
+              </div>
+              <div>
+                <h4>Exterior Washing</h4>
+                <button class="btn book-btn" onclick="onBooking('count-5')">
+                  Book Now
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <span id="count-5">3</span> Apointement Available
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <div class="card-image" onclick="showImage('image-item6')">
+                <img class="imag image-item6"  width="70px" alt="Brake-Reparing" src="./icons/BrakeReparing .png" />
+              </div>
+              <div>
+                <h4>Brake Reparing</h4>
+                <button class="btn book-btn" onclick="onBooking('count-6')">
+                  Book Now
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <span id="count-6">3</span> Apointement Available
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="our-clients">
+        <h4 class="blue-text">What Our Clients Say</h4>
+        <div class="header-card bg-blue">
+          <div class="header-body">
+            <div class="image-container centralize">
+              <img width="200px" id="client-image" src="" alt="client-image" />
+            </div>
+          </div>
+          <div class="header-title">
+            <div>
+              <p class="header-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+                odio cupiditate qui nostrum natus? Doloremque dolore asperiores
+                aliquam quasi. Nostrum ab magnam cum molestiae illum. Atque
+                labore assumenda hic cumque? Odit, in voluptatum velit qui
+                ratione dolorum minima incidunt itaque earum aliquid distinctio
+                sunt! Quis aut eveniet voluptate autem nemo!
+              </p>
+              <button class="btn read-btn" onclick="onReadMore()">
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="nav-container bg-blue">
+      <p>&copy; Axsos Academy</p>
+      <div class="nav-links">
+        <li>
+          <a href="#" title="GitHub">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+              alt="GitHub Icon"
+            />
+          </a>
+        </li>
+
+        <li>
+          <a href="#" title="LinkedIn">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+              alt="LinkedIn Icon"
+            />
+          </a>
+        </li>
+        <li>
+          <a href="mailto:example@example.com" title="Email">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+              alt="Email Icon"
+            />
+          </a>
+        </li>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
