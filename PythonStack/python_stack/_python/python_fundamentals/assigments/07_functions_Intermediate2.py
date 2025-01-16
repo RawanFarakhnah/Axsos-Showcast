@@ -2,7 +2,9 @@
 x = [[5,2,3] , [10,8,9]]
 students = [
     {'first_name': 'Michael' , 'last_name': 'Jordan'},
-    {'first_name': 'John' , 'last_name': 'Rosales'}
+    {'first_name': 'John' , 'last_name': 'Rosales'},
+    {'first_name': 'Mark' , 'last_name': 'Guillen'},
+    {'first_name': 'KB' , 'last_name': 'Tonel'}
 ]
 
 sport_directory = {
@@ -36,4 +38,42 @@ z[0]["y"] = 30
 print(f"after: {z}")
 
 #002 Iterate Through a List of Dictionaries
+def iterateDictionary(some_list):
+   for item in some_list:
+        message_list = []
+        for key in item: 
+          message_list.append("{0} - {1}".format(key, item[key]))
+        print(", ".join(message_list))
+
+print("\n#02 Iterate Through a List of Dictionaries")
+iterateDictionary(students)
+
+
+#003 Get Values From a List of Dictionaries
+def iterateDictionary2(key_name, some_list):
+    for item in some_list:
+        if key_name in item:
+          print(item[key_name]) 
+        
+print("\n#03 Get Values From a List of Dictionaries")
+iterateDictionary2("first_name", students)
+print("\n")
+iterateDictionary2("last_name", students)
+
+
+
+#004 Iterate Through a Dictionary with List Values
+dojo = {
+   'locations': ['San Jose', 'Seattle' , 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
+   'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh' ,'Devon'],
+}
+
+def printInfo(some_dict):
+    for key in some_dict:
+        print("\n{0} {1}".format(len(some_dict[key]), key))
+        for item in some_dict[key]:
+            print(item)
+        
+print("\n#04 Iterate Through a Dictionary with List Values")
+printInfo(dojo)
 
