@@ -13,11 +13,12 @@ print(biggie_size(num_list))
 #02- Count Positives
 def count_positives(num_list):
     count = 0
+    length = len(num_list)
     for i in range(len(num_list)):
         if num_list[i] > 0: 
            count += 1 
-    
-    num_list[len(num_list) - 1] = count
+      
+    num_list[length - 1] = count
     return num_list
 
 print("\n#2 Count Positives")
@@ -45,10 +46,11 @@ print(sum_total(num_list))
 def average(num_list):
     sum = 0
     average = 0
+    length = len(num_list)
     for i in range(len(num_list)):
         sum += num_list[i]
     
-    average = sum / len(num_list)
+    average = sum / length
     return average
 
 print("\n#4 Average")
