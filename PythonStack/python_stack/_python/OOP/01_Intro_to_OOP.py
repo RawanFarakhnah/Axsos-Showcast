@@ -5,7 +5,7 @@
 
 
 class User:
-    #شttributes : carecterestic of an object
+    #attributes : carecterestic of an object
     #constructor: called when new object instantiated
   
     def __init__(self, name, email_address):

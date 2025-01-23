@@ -1,21 +1,10 @@
 import random
 #Functions Intermediate I
-def random_int(min=None,max=None):
-    if (min is None and max is None ):
-        return random.randrange(0, 1000)
-    elif (min is None and not(max is None)):
-        return random.randrange(0, max)
-    elif (not(min is None) and max is None):
-        if min < 100:
-           return random.randrange(min, 100)
-        else:
-            print("Min Vlaue Should less than 100")
+def random_int(min=0,max=1000):
+    if max > min :
+        return random.randrange(min,max)
     else:
-        if min < max:
-           return random.randrange(100, 700)
-        else:
-            print("Min Vlaue Should less than Max Vlaue")
-        
+        raise ValueError("Max must be begger than Min")
 
 print("Random Integer")
 print(random_int())

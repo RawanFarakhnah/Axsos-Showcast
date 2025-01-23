@@ -39,13 +39,14 @@ print(f"after: {z}")
 
 #002 Iterate Through a List of Dictionaries
 def iterateDictionary(some_list):
-   for item in some_list:
-        message_list = []
-        for key in item: 
-          message_list.append("{0} - {1}".format(key, item[key]))
-        print(", ".join(message_list))
+    for item in some_list:
+      message_list = [] 
+      for key,value in item.items():
+          message_list.append("{0} - {1}".format(key, value))
+      print(", ".join(message_list)) 
 
 print("\n#02 Iterate Through a List of Dictionaries")
+#output format: first_name - KB, last_name - Tonel
 iterateDictionary(students)
 
 
@@ -69,10 +70,11 @@ dojo = {
 }
 
 def printInfo(some_dict):
-    for key in some_dict:
-        print("\n{0} {1}".format(len(some_dict[key]), key))
-        for item in some_dict[key]:
-            print(item)
+    for key, values in some_dict.items():
+       print("\n{0} {1}".format(len(values), key))
+       for val in values:
+          print(val)
+    
         
 print("\n#04 Iterate Through a Dictionary with List Values")
 printInfo(dojo)
