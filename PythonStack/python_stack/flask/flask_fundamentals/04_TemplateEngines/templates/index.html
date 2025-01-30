@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Engines</title>
+</head>
+<body>
+    <h3>My Flask Template</h3>
+    <p>phrase: {{phrase}}</p>
+    <p>times: {{times}}</p>
+    <hr/>
+
+    {%for time in range(times) %}
+       <p>{{phrase}}</p>
+    {%endfor %}
+
+    {%if phrase == "hello"%}
+       <p>The phrase says hello</p>
+    {%endif %}
+</body>
+</html>
