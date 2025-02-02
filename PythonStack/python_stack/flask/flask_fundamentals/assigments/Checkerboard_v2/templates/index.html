@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2>Welcome Checkerboard!</h2>
+            <p><b>Rows: </b> ( {{rows}} )</p>
+            <p><b>Colms:</b> ( {{colms}} )</p>
+        </div>
+        <hr>
+        
+        {% for row in range(rows)%}
+          {% for col in range(colms)%}
+            {% if (row + col) % 2 == 0 %}
+               {% set color = color1 %}  
+            {% else %}
+                {% set color = color2 %}
+             {% endif %}
+
+             <div class="box" style="background-color: {{color}};"></div>
+          {% endfor %}
+          <br/>
+        {% endfor %}
+      
+
+    </div>
+
+</body>
+</html>

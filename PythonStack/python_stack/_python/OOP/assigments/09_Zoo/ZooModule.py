@@ -5,7 +5,9 @@ class Zoo:
         self.animals = []
         self.name = zoo_name
     
-    def add_animal(self, *new_animal):
+    def add_animal(self, animal, *new_animal):
+        self.animals.append(animal)
+        
         for animal in new_animal:
             self.animals.append(animal)
     

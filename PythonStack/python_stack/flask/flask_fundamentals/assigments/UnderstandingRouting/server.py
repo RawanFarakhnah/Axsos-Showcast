@@ -7,7 +7,7 @@ def hello_world():
     return "Hello World!"
 
 
-@app.route('/Champion')
+@app.route('/champion')
 def say_champion():
     return "Champion!"
 
@@ -20,7 +20,7 @@ def say_name(name):
 def say_repeatedly_something(times, message):
     output = ""
     for i in range(times):
-        output += f"{message} \n"
+        output += f"{message} <br/>"
     return output
     
 @app.errorhandler(404)
