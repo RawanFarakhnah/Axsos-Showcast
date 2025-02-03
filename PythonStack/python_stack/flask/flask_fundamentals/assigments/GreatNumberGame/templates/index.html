@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Great Number Game</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .squar {
+        width: 140px;
+        height: 140px;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body class="container">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+      <div class="text-center p-4 rounded shadow-lg">
+        <h2 class="fw-bold">Welcome to the Great Number Game!</h2>
+        <p class="fs-5">
+          I am thinking of a number between <strong>1</strong> and
+          <strong>100</strong>.
+        </p>
+        <p class="mb-3">Take a guess!</p>
+        <p class="mb-3">
+          Number of Attempts <strong>{{session['attempts']}}</strong>
+        </p>
+
+        {% if session['attempts'] < 5 %} {% if success%}
+        <!-- "guess sussessfuly" Box -->
+        <div
+          class="d-flex squar align-items-center justify-content-center bg-success text-white fw-bold rounded shadow mb-4 p-3"
+        >
+          <div class="text-center">
+            <p>{{ session['random'] }} was the number!</p>
+
+            <a href="/try_again" class="btn btn-secondary btn-sm">Try Again!</a>
+          </div>
+        </div>
+        {% endif %} 
+        {% if not success %} 
+        {% if message != "" %}
+        <!-- "Too Low" Box -->
+        <div
+          class="d-flex squar align-items-center justify-content-center bg-danger text-white fw-bold rounded shadow mb-3"
+        >
+          {{message}}
+        </div>
+        {% endif %}
+
+        <!-- Guess Form -->
+        <form
+          action="/guess_number"
+          method="POST"
+          class="d-flex gap-3 align-items-start justify-content-center"
+        >
+          <div>
+            <input
+              type="number"
+              class="form-control shadow"
+              placeholder="Your guess"
+              aria-describedby="guessHint"
+              name="guess_number"
+              min="1"
+              max="100"
+              required
+            />
+            <div id="guessHint" class="text-muted small mt-1">
+              Enter a number between 1 and 100.
+            </div>
+          </div>
+          <button class="btn btn-primary rounded shadow px-4" type="submit">
+            Submit Guess
+          </button>
+        </form>
+        {% endif %}
+       {% endif%}
+
+       {% if session['attempts'] == 5 %}
+       <!-- "attempts is five" Box -->
+       <div
+         class="d-flex align-items-center justify-content-center fw-bold rounded shadow mb-4 p-3"
+       >
+         <div class="text-center">
+           <p>You Lose!</p>
+
+           <a href="/try_again" class="btn btn-secondary btn-sm">Try Again!</a>
+         </div>
+       </div>
+       {% endif %} 
+
+
+      </div>
+    </div>
+  </body>
+</html>

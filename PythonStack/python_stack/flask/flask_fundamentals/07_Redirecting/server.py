@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 
 app = Flask(__name__)
-app.secret_key = '8f895499bf8b4deb9ff54e4743ea0411'
+app.secret_key = 'your_key_Id'
 
 @app.route('/')
 def home():
