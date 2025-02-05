@@ -14,33 +14,33 @@ def index():
         session['activites'] = []
 
    #sort activites
-   sorted_activites = sorted(session['activites'], key=lambda log: log['creationTime'],reverse=True)
+   sorted_activites = sorted(session['activites'], key=lambda log: log['creationTime'] ,reverse=True)
 
    return render_template('index.html', activites=sorted_activites)
 
 @app.route('/process_money', methods=['POST'])
 def process_money():
-  building = request.form.get('building')
-  min_gold = request.form.get('min')
-  max_gold = request.form.get('max')
+   building = request.form.get('building')
+   min_gold = request.form.get('min')
+   max_gold = request.form.get('max')
 
-  #random random number within range
-  earned_gold = randrange(int(min_gold), int(max_gold))
-  color = 'green' if earned_gold > 0 else 'red'
+   #random random number within range
+   earned_gold = randrange(int(min_gold), int(max_gold))
+   color = 'green' if earned_gold > 0 else 'red'
 
-  now = datetime.now()  
-  current_time = now.strftime("%Y-%m-%d %H:%M:%S")
+   now = datetime.now()  
+   current_time = now.strftime("%Y-%m-%d %H:%M:%S")
    
-  active_log = {'building' :building,'earnedGold': earned_gold, 
+   active_log = {'building' :building,'earnedGold': earned_gold, 
                  'color':  color, 'creationTime': current_time}
    
-  #Update Session
-  session['gold'] += earned_gold
-  session['activites'].append(active_log)
-  print("session['activites']" , session['activites'])
+   #Update Session
+   session['gold'] += earned_gold
+   session['activites'].append(active_log)
+   print("session['activites']" , session['activites'])
 
-  #Redirect back to index page
-  return redirect('/')
+   #Redirect back to index page
+   return redirect('/')
 
 
 @app.route('/reset', methods=['POST'])
