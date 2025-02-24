@@ -29,7 +29,8 @@
           Number of Attempts <strong>{{session['attempts']}}</strong>
         </p>
 
-        {% if session['attempts'] < 5 %} {% if success%}
+        {% if session['attempts'] < 5 %} 
+        {% if success%}
         <!-- "guess sussessfuly" Box -->
         <div
           class="d-flex squar align-items-center justify-content-center bg-success text-white fw-bold rounded shadow mb-4 p-3"

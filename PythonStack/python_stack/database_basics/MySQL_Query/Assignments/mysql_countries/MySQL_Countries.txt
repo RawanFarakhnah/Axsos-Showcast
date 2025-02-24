@@ -1,0 +1,78 @@
+-- (1) All Countries That Speak Slovene
+USE world;
+
+SELECT c.name, l.language, l.percentage
+FROM countries AS c
+JOIN languages AS l ON l.country_id = c.id
+WHERE l.language LIKE '%Slovene%'
+ORDER BY l.percentage DESC;
+
+
+-- (2) Total Number of Cities for Each Country
+USE world;
+
+SELECT countries.name, count(cities.name) AS cities
+FROM countries
+LEFT JOIN cities ON cities.country_id = countries.id
+GROUP BY countries.id
+ORDER BY cities DESC;
+
+-- (3)get all the cities in Mexico with a population of greater than 500,000
+USE world;
+
+SELECT name, population
+FROM cities
+WHERE country_id = 136 
+      AND population > 500000
+ORDER BY population DESC;
+
+-- (4) get all languages in each country with a percentage greater than 89%
+USE world;
+
+SELECT c.name, l.language, l.percentage
+FROM countries AS c
+LEFT JOIN languages AS l ON l.country_id = c.id
+WHERE l.percentage > 89.00
+ORDER BY l.percentage DESC;
+
+-- (5)All the countries with Surface Area below 501 and Population greater than 100,000
+USE world;
+
+SELECT name, surface_area, population
+FROM countries
+WHERE population > 100000 
+      AND surface_area < 501;
+
+-- (6) countries with only Constitutional Monarchy with a capital greater than 200 and a life expectancy greater than 75 years
+USE world;
+
+SELECT name, government_form, capital, life_expectancy
+FROM countries
+WHERE government_form = 'Constitutional Monarchy'
+	  AND capital > 200
+      AND life_expectancy > 75;
+
+
+-- (7) all the cities of Argentina inside the Buenos Aires district and have the population greater than 500, 000
+USE world;
+
+SELECT countries.name AS country_name,
+       cities.name AS city_name,
+       cities.district,
+       cities.population
+FROM cities
+JOIN countries ON countries.id = cities.country_id
+WHERE cities.country_id = 9
+      AND district like "%Buenos Aires%"
+      AND cities.population > 500000
+ORDER BY cities.population DESC;
+
+
+-- (8)Summarize the number of countries in each region
+USE world;
+
+SELECT region, 
+       count(id) AS countries
+FROM countries
+GROUP BY region
+ORDER BY countries DESC

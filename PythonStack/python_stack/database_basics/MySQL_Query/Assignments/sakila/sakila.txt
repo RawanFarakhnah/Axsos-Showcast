@@ -1,0 +1,113 @@
+-- (1)All the customers inside city_id = 312 
+USE sakila;
+SELECT  a.city_id,
+        c.first_name,
+        c.last_name,
+	c.email,
+        a.address,
+        city.city,
+	country.country
+FROM customer AS c
+LEFT JOIN address AS a ON a.address_id = c.address_id
+LEFT JOIN city ON a.city_id = city.city_id
+LEFT JOIN country ON city.country_id = country.country_id
+WHERE city.city_id = 312;
+
+-- (2) All Comedy films
+USE sakila;
+
+SELECT film.film_id, film.title, film.description,
+       film.release_year, film.rating, film.special_features,
+	   category.name as genre 
+FROM film 
+LEFT JOIN film_category on film_category.film_id = film.film_id
+LEFT JOIN category on film_category.category_id = category.category_id
+WHERE  category.name = "Comedy";
+
+-- (3) All the films joined by actor_id=5
+USE sakila;
+
+SELECT actor.actor_id,
+       concat(actor.first_name , ' ', actor.last_name) as actor_name, 
+       film.title, 
+       film.description, 
+       film.release_year 
+FROM film 
+LEFT JOIN film_actor on film_actor.film_id = film.film_id
+LEFT JOIN actor on actor.actor_id = film_actor.actor_id
+WHERE actor.actor_id = 5;
+
+
+-- (4) all the customers in store_id = 1 and inside these cities (1, 42, 312, and 459)
+USE sakila;
+SELECT  a.city_id,
+        c.first_name,
+        c.last_name,
+	c.email,
+        a.address
+FROM customer AS c
+LEFT JOIN address AS a ON a.address_id = c.address_id
+WHERE c.store_id = 1
+      AND a.city_id IN (1, 42, 312, 459);
+
+-- (5) All the films with a "rating = G" and "special feature = behind the scenes" 
+-- , joined by actor_id = 15
+USE sakila;
+
+SELECT actor.actor_id,
+       concat(actor.first_name , ' ', actor.last_name) as actor_name, 
+       film.title, film.description,
+       film.release_year, film.rating, film.special_features
+FROM film 
+LEFT JOIN film_actor ON film_actor.film_id = film.film_id
+LEFT JOIN actor ON actor.actor_id = film_actor.actor_id
+WHERE film.rating = 'G'
+      AND film.special_features LIKE "%behind the scenes%"
+      AND actor.actor_id = 15;
+
+
+-- (6) All the actors joining the film_id = 369
+USE sakila;
+
+SELECT film.film_id,
+       film.title,
+       actor.actor_id,
+       concat(actor.first_name , ' ', actor.last_name) as actor_name
+FROM film 
+LEFT JOIN film_actor ON film_actor.film_id = film.film_id
+LEFT JOIN actor ON actor.actor_id = film_actor.actor_id
+WHERE film_actor.film_id = 369;
+
+
+-- (7) All drama films with a rental rate of 2.99
+USE sakila;
+
+SELECT film.title, film.description,
+       film.release_year, 
+       film.rating,
+       film.special_features,
+	   category.name as genre 
+FROM film 
+LEFT JOIN film_category on film_category.film_id = film.film_id
+LEFT JOIN category on film_category.category_id = category.category_id
+WHERE  category.name like "%Drama%"
+	AND rental_rate = 2.99;
+
+-- (8) all the action films which are joined by SANDRA KILMER
+USE sakila;
+
+SELECT film.title, 
+	   film.description,
+       film.release_year, 
+       film.rating,
+       film.special_features,
+       category.name as genre,
+	   concat(actor.first_name , ' ', actor.last_name) as actor_name	
+FROM film 
+LEFT JOIN film_category on film_category.film_id = film.film_id
+LEFT JOIN category on film_category.category_id = category.category_id
+LEFT JOIN film_actor ON film_actor.film_id = film.film_id
+LEFT JOIN actor ON actor.actor_id = film_actor.actor_id
+WHERE  category.name like "%Action%"
+	AND concat(actor.first_name , ' ', actor.last_name) 
+    like "%SANDRA KILMER%";

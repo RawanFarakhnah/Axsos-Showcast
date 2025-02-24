@@ -1,0 +1,59 @@
+-- (1)Display the relationships
+USE friendship_database;
+
+SELECT user1.first_name AS first_name,
+       user1.last_name AS last_name,
+       user2.first_name AS friend_first_name,
+       user2.last_name AS friend_last_name
+FROM users AS user1
+LEFT JOIN friendships ON friendships.user_id = user1.id
+LEFT JOIN users AS user2 ON friendships.friend_id = user2.id;
+
+-- (2)All users who are friends with the first user
+USE friendship_database;
+
+SELECT user1.first_name AS first_name,
+       user1.last_name AS last_name,
+       user2.first_name AS friend_first_name,
+       user2.last_name AS friend_last_name
+FROM users AS user1
+LEFT JOIN friendships ON friendships.user_id = user1.id
+LEFT JOIN users AS user2 ON friendships.friend_id = user2.id
+WHERE user1.id = 1;
+
+
+-- (3)Count of all friendships
+USE friendship_database;
+
+SELECT user1.first_name AS first_name,
+       user1.last_name AS last_name,
+       COUNT(user2.id) AS count_of_friends
+FROM users AS user1
+LEFT JOIN friendships ON friendships.user_id = user1.id
+LEFT JOIN users AS user2 ON friendships.friend_id = user2.id
+GROUP BY user1.id;
+
+-- (4)All users who are friends with the first user
+USE friendship_database;
+
+SELECT user1.first_name AS first_name,
+       user1.last_name AS last_name,
+       COUNT(user2.id) AS count_of_friends
+FROM users AS user1
+LEFT JOIN friendships ON friendships.user_id = user1.id
+LEFT JOIN users AS user2 ON friendships.friend_id = user2.id
+GROUP BY user1.id
+ORDER BY count_of_friends DESC
+LIMIT 1;
+
+-- (5)Return the friends of the third user in alphabetical order
+USE friendship_database;
+
+SELECT user2.first_name AS friend_first_name,
+       user2.last_name AS friend_last_name
+FROM users AS user2
+JOIN friendships ON friendships.friend_id = user2.id
+WHERE friendships.user_id = 
+   (SELECT user1.id FROM users AS user1
+    ORDER BY user1.first_name
+	LIMIT 2,1);

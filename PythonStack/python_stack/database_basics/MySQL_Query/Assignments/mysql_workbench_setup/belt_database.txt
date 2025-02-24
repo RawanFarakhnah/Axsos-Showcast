@@ -1,0 +1,82 @@
+-- (1)CREATE DATABASE 
+CREATE DATABASE belt_database;
+
+-- (2)CREATE TABLE 
+USE belt_database;
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  email VARCHAR(255),
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE belts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  belt_name VARCHAR(255),
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW() ON UPDATE NOW()
+);
+
+CREATE TABLE users_belts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  belt_id INT,
+  FOREIGN KEY (user_id) REFERENCES users(id), 
+  FOREIGN KEY (belt_id) REFERENCES belts(id),
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW() ON UPDATE NOW()
+);
+
+-- (3)ALTER TABLE AND ADD NEW COLUMN 
+USE belt_database;
+ALTER TABLE users ADD COLUMN updated_at TIMESTAMP DEFAULT NOW() ON UPDATE NOW();
+
+-- (4)QUERIES TO MAKE CRUD APP
+-- (4.1) CREATE EQUIVALIANT TO INSERT
+INSERT INTO users (first_name, last_name , email)
+values ('John', 'Doe', 'john.doe@example.com'),
+('Jane', 'Smith', 'jane.smith@example.com'),
+('Michael', 'Johnson', 'michael.johnson@example.com'),
+('Emily', 'Davis', 'emily.davis@example.com'),
+('David', 'Williams', 'david.williams@example.com');
+
+INSERT INTO belts (belt_name) 
+VALUES ('yellow'), 
+       ('red'),
+       ('black');
+
+INSERT INTO users_belts (user_id, belt_id)
+VALUES 
+(1, 1), 
+(1, 2), 
+(2, 2),  
+(2, 3),  
+(3, 1),  
+(4, 3); 
+
+-- (4.2) UPDATE EQUIVALIANT TO UPDATE
+UPDATE users 
+SET first_name = "Code", 
+	last_name = "Dojo" ,
+    email = 'code.dojo@example.com'
+WHERE id = 1;
+
+-- (4.3) READ EQUIVALIANT TO SELECT
+USE belt_database;
+SELECT * FROM users;
+
+USE belt_database;
+SELECT first_name, 
+       last_name, 
+       GROUP_CONCAT(b.belt_name ORDER BY b.belt_name SEPARATOR ", ") AS belts
+FROM users
+JOIN users_belts AS ub ON ub.user_id = users.id
+JOIN belts AS b ON b.id = ub.belt_id
+GROUP BY users.id;
+
+-- (4.4) DELETE EQUIVALIANT TO DELETE
+DELETE FROM users WHERE id = 5;
+
+-- (5)DELETE TABLE 
+DROP TABLE users;

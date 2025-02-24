@@ -1,0 +1,61 @@
+use martion_database;
+-- (4) SHOW Martin With no Job And ALL Vistors without a host
+
+-- SELECT m.first_name AS martian_fn,
+--        m.last_name AS martian_ln,
+--        b.base_name AS base_name,
+--        NULL AS visitor_fn,
+--        NULL AS visitor_ln
+-- FROM martians AS m
+-- LEFT JOIN bases AS b ON b.id = m.base_id
+-- LEFT JOIN visitors AS v ON v.host_id = m.id
+-- WHERE v.id IS NULL  -- Martians who are NOT hosting visitors
+
+-- UNION ALL
+
+-- SELECT NULL AS martian_fn,
+--        NULL AS martian_ln,
+--        NULL AS base_name,
+--        v.first_name AS visitor_fn,
+--        v.last_name AS visitor_ln
+-- FROM visitors AS v
+-- WHERE v.host_id IS NULL;  -- Visitors WITHOUT a host
+
+-- (3) SHOW base supply inventors report
+-- select s.id, 
+--        case when i.quantity is null then 0 else i.quantity end as inventor_quantity ,
+--        s.name,
+--        s.description
+-- from (select * from inventories where base_id = 1) as i
+-- right join supplies as s on i.supply_id = s.id;
+
+
+
+-- select s.name as supply_name,
+--        s.quantity as supply_quantity, 
+--        i.quantity as inventory_quantity,
+--        b.base_name as base_name
+-- from inventories as i
+-- left join supplies as s on s.id = i.supply_id
+-- left join bases as b on b.id = i.base_id;
+
+
+-- (2) SHOW LIST OF martian and person is super 
+-- select  m.first_name as martian_fn,
+--         m.last_name as martian_ln,
+--         s.first_name as super_fn,
+--         s.last_name as super_ln   
+-- from martians as m
+-- left join martians as s 
+-- on s.super_id = m.id;
+
+
+
+-- (1) SHOW WHO IS HOSTING THE VISITORES  
+-- SELECT   v.first_name as visitor_fn,
+--          v.last_name as visitor_ln,
+--          m.first_name as martian_fn,
+--          m.last_name as martian_ln     
+-- FROM visitors as v
+-- LEFT JOIN martians as m
+-- on v.host_id = m.id;
