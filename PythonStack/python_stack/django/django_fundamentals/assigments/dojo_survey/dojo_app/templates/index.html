@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dojo Survey</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container py-5">
+      <form action="/result" method="post" class="card shadow-lg p-4">
+        {% csrf_token%}
+        <!-- Full Name -->
+        <div class="input-group mb-3">
+          <label for="fullname" class="form-label fw-bold col-sm-3"
+            >Your Name :</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="fullname"
+            name="fullname"
+            placeholder="Enter your name"
+          />
+        </div>
+
+        <!-- Dojo Location -->
+        <div class="input-group mb-3">
+          <label for="location" class="form-label fw-bold col-sm-3"
+            >Dojo Location :</label
+          >
+          <select class="form-select" name="location">
+            <option value="Ramallah">Ramallah</option>
+            <option value="Nablus">Nablus</option>
+            <option value="Hebron">Hebron</option>
+            <option value="Gaza">Gaza</option>
+          </select>
+        </div>
+
+        <!-- Favorite Language -->
+        <div class="input-group mb-3">
+          <label for="language" class="form-label fw-bold col-sm-3"
+            >Favorite Language:</label
+          >
+          <select class="form-select" name="language" id="language">
+            <option value="Python">Python</option>
+            <option value="Java Script">JavaScript</option>
+            <option value="HTML">HTML</option>
+          </select>
+        </div>
+
+        <!-- Favorite Communication -->
+        <div class="input-group mb-3">
+          <label for="communication" class="form-label fw-bold col-sm-3"
+            >Favorite Communication:</label
+          >
+
+          <div class="form-check pe-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="whatsapp"
+              value="whatsapp"
+              name="communication"
+            />
+            <label class="form-check-label" for="whatsapp"> Whatsapp </label>
+          </div>
+
+          <div class="form-check pe-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="facebook"
+              value="facebook"
+              name="communication"
+            />
+            <label class="form-check-label" for="facebook"> Facebook </label>
+          </div>
+
+          <div class="form-check pe-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="email"
+              value="email"
+              name="communication"
+            />
+            <label class="form-check-label" for="email"> Email </label>
+          </div>
+
+          <div class="form-check pe-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="sms"
+              value="sms"
+              name="communication"
+            />
+            <label class="form-check-label" for="sms"> SMS </label>
+          </div>
+        </div>
+
+        <!-- Service Satisfaction -->
+        <div class="input-group mb-3">
+          <label for="satisfaction" class="form-label fw-bold col-sm-3"
+            >Service Satisfaction:</label
+          >
+
+          <label for="satisfied" class="form-check pe-3">
+            <input
+              type="radio"
+              name="satisfaction"
+              id="satisfied"
+              value="Satisfied"
+              class="form-check-input"
+            />
+            Satisfied
+          </label>
+
+          <label for="neutral" class="form-check pe-3">
+            <input
+              type="radio"
+              id="neutral"
+              name="satisfaction"
+              value="Neutral"
+              class="form-check-input"
+            />
+            Neutral
+          </label>
+
+          <label for="dissatisfied" class="form-check pe-3">
+            <input
+              type="radio"
+              name="satisfaction"
+              id="dissatisfied"
+              value="Dissatisfied"
+              class="form-check-input"
+            />
+            Dissatisfied
+          </label>
+        </div>
+
+        <!-- Comment (optional) -->
+        <div class="mb-3">
+          <label for="comment" class="form-label fw-bold">
+            Comment (optional):</label
+          >
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            id="comment"
+            name="comment"
+          ></textarea>
+        </div>
+
+        <!-- Submit button -->
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary px-4">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

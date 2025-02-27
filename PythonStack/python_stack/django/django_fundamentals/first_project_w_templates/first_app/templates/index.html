@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js'%}"></script>
+</head>
+<body>
+    <h1>Info From Server:</h1>
+    <div class="flex">
+        <div class="col-3">
+            <p>Name: <span class="text_danger">{{name}}</span></p>
+            <p>Color: <span class="text_danger">{{favorite_color}}</span></p>
+            <p>Pets</p>
+            <!-- <p>Pets {{ pets.0 }}</p> -->
+            <ul>
+            
+            {% for pet in pets %}
+               <li>{{pet}}</li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="col">
+            <img width="300px" src="{% static 'images/securityknightocat.png'%}" alt="">
+        </div>
+    </div>
+    
+ 
+
+    
+</body>
+</html>
