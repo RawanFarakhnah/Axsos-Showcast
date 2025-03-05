@@ -1,0 +1,37 @@
+#Run the shell and import your User model
+python manage.py shell
+from users_app.models import User
+
+#query: Create 3 new users
+User.objects.create(first_name="John", last_name="Doe", email_address="john.doe@example.com", age=28)    
+users = [ 
+    User(first_name="Jane", last_name="Smith", email_address="jane.smith@example.com", age=34), 
+    User(first_name="Alice", last_name="Johnson", email_address="alice.johnson@example.com", age=25), 
+    User(first_name="Bob", last_name="Brown", email_address="bob.brown@example.com", age=40), 
+    User(first_name="Charlie", last_name="Davis", email_address="charlie.davis@example.com", age=29), 
+    User(first_name="Code", last_name="Dojo", email_address="code.dojo@example.com", age=44)
+    ]
+User.objects.bulk_create(users)  
+
+
+#query: Retrieve all the users
+User.objects.all()
+
+#query: Retrieve the last user
+User.objects.last()
+
+#query: Change the user with id=3 so their last name is Pancakes.
+user = User.objects.get(id=3)
+user.last_name = 'Pancakes'
+user.save()
+
+#query: Delete the user with id=2 from the database
+user = User.objects.get(id=2)
+user.delete()
+
+#query: Get all the users, sorted by their first name
+User.objects.all().order_by('first_name')
+
+#BONUS Query: Get all the users, sorted by their first name in descending order
+User.objects.all().order_by('-first_name')
+

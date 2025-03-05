@@ -37,5 +37,5 @@ def guess_number(request):
            request.session['success'] = False
            request.session['message'] = 'Too High!'
        
-       request.session.modified = True
+       request.session.save()
        return redirect(reverse('root'))
