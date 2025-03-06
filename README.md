@@ -1,8 +1,7 @@
 # Axsos-Showcast
+Welcome to **Axsos-Showcast**, a personal collection of my full stack development journey. This repository is where I showcase the results of my hard work, continuous learning, and growth during my time in the **AXSOS Academy GmbH Full Stack Part-Time Program**.
 
 ![AXSOS Academy Logo](https://changeonelife.life/wp-content/uploads/2020/08/AXSOS-Academy-Logo-01.png)
-
-Welcome to **Axsos-Showcast**, a personal collection of my full stack development journey. This repository is where I showcase the results of my hard work, continuous learning, and growth during my time in the **AXSOS Academy GmbH Full Stack Part-Time Program**.
 
 ## 🚀 About This Repository
 
@@ -19,6 +18,7 @@ Thanks to AXSOS Academy, I’ve also sharpened my **soft skills**, including doc
 ## 💻 Technologies I've Mastered
 
 Below are the technologies and frameworks I’ve worked with, each one representing a significant milestone in my journey.
+
 ![HTML](https://img.shields.io/badge/-HTML-orange?style=flat-square&logo=html5) ![CSS](https://img.shields.io/badge/-CSS-blue?style=flat-square&logo=css3) ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow?style=flat-square&logo=javascript) ![Bootstrap](https://img.shields.io/badge/-Bootstrap-purple?style=flat-square&logo=bootstrap) ![Tailwind CSS](https://img.shields.io/badge/-Tailwind%20CSS-teal?style=flat-square&logo=tailwind-css) ![React (Learning)](https://img.shields.io/badge/-React-blue?style=flat-square&logo=react) ![Python](https://img.shields.io/badge/-Python-blue?style=flat-square&logo=python) ![Flask](https://img.shields.io/badge/-Flask-black?style=flat-square&logo=flask) ![Django](https://img.shields.io/badge/-Django-darkgreen?style=flat-square&logo=django) ![SQL Server](https://img.shields.io/badge/-Microsoft%20SQL%20Server-lightgrey?style=flat-square&logo=microsoftsqlserver) ![Git](https://img.shields.io/badge/-Git-orange?style=flat-square&logo=git)
 
 ## 💬 My Soft Skills Growth
