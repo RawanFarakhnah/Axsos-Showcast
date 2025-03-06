@@ -1,0 +1,62 @@
+
+#Run the shell and import your models
+python manage.py shell
+from dojo_ninjas_app.models import Dojo,Ninja
+#-------------------------------------------
+
+#query: Create 3 new dojos
+Dojo.objects.create(name="Shaolin Temple", city="Dengfeng", state="HN")
+Dojo.objects.create(name="Kodokan Judo Institute", city="Tokyo", state="TY")
+Dojo.objects.create(name="Gracie Jiu-Jitsu Academy", city="Los Angeles", state="CA")
+#-------------------------------------------
+
+#query: Delete the 3 dojos you just created
+Dojo.objects.all().delete() 
+#------------------------------------------
+#query: Create 3 more dojos
+Dojo.objects.create(name="Shaolin Temple", city="Dengfeng", state="HN")
+Dojo.objects.create(name="Kodokan Judo Institute", city="Tokyo", state="TY")
+Dojo.objects.create(name="Gracie Jiu-Jitsu Academy", city="Los Angeles", state="CA")
+
+#------------------------------------------
+# query: Create 3 ninjas that belong to the first dojo
+this_dojo = Dojo.objects.first()
+Ninja.objects.create(first_name="Ninja1", last_name="Ninja1 Last",dojo= this_dojo)
+Ninja.objects.create(first_name="Ninja2", last_name="Ninja2 Last",dojo= this_dojo)
+Ninja.objects.create(first_name="Ninja3", last_name="Ninja3 Last",dojo= this_dojo)
+
+# query: Create 3 ninjas that belong to the second dojo
+this_dojo = Dojo.objects.get(id=5)
+Ninja.objects.create(first_name="Ninja4", last_name="Ninja4 Last",dojo= this_dojo)
+Ninja.objects.create(first_name="Ninja5", last_name="Ninja5 Last",dojo= this_dojo)
+Ninja.objects.create(first_name="Ninja6", last_name="Ninja6 Last",dojo= this_dojo)
+
+# query: Create 3 ninjas that belong to the third dojo
+this_dojo = Dojo.objects.last()
+Ninja.objects.create(first_name="Ninja7", last_name="Ninja7 Last",dojo= this_dojo)
+Ninja.objects.create(first_name="Ninja8", last_name="Ninja8 Last",dojo= this_dojo)
+Ninja.objects.create(first_name="Ninja9", last_name="Ninja9 Last",dojo= this_dojo)
+
+#------------------------------------------
+#query: Retrieve all the ninjas from the first dojo
+this_dojo = Dojo.objects.first()
+this_dojo.ninjas.all()
+
+#query: Retrieve all the ninjas from the last dojo
+this_dojo = Dojo.objects.last()
+this_dojo.ninjas.all()
+#-------------------------------------------
+#query: Retrieve the last ninja's dojo
+this_ninja = Ninja.objects.last()
+print(this_ninja.dojo) 
+
+#-------------------------------------------
+Dojo.objects.create(
+    name="Kyokushin Karate Dojo", 
+    city="Osaka", 
+    state="OS", 
+    desc="A traditional Kyokushin Karate dojo known for its full-contact training and disciplined approach."
+)
+
+
+
