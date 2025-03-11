@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container p-5 row">
+        <div class="col card rounded shadow-sm bg-light">
+             <h3 class="mb-4 mt-3">Add a Book</h3>
+             <form action="{% url 'create_book'%}" method="post">
+                {% csrf_token %}
+                 <div class="input-group mb-3">
+                     <label for="title" class="form-label fw-bold col-3">Title</label>
+                     <input type="text" class="form-control" name="title" id="title" placeholder="Enter Book Title" required>
+                 </div>
+                 <div class="input-group mb-3">
+                    <label for="desc" class="form-label fw-bold col-3">Description</label>
+                    <textarea type="text" class="form-control" rows="4" name="desc" id="desc"></textarea>
+                </div>
+                <div class="mb-3 d-flex justify-content-end">
+                    <input type="submit" value="Add Book" class="btn btn-primary">
+                </div>
+             </form>
+        </div>
+        <div class="col">
+             <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in all_books %}
+                    <tr>
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.title }}</td>
+                        <td><a href="{% url 'view_book' book.id %}">View</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+             </table>
+        </div>
+    </div>
+</body>
+</html>

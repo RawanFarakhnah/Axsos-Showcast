@@ -26,8 +26,8 @@ def create_ninja(request):
     if request.method == 'POST':
       dojo_id = request.POST['dojo_id']
       
-      if dojo_id > 0:
-         this_dojo = Dojo.objects.get(id=dojo_id)
+      if int(dojo_id) > 0:
+         this_dojo = Dojo.objects.get(id=int(dojo_id))
          Ninja.objects.create(
              first_name = request.POST['first_name'],
              last_name = request.POST['last_name'],

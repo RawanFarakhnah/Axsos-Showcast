@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Book</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container p-4">
+
+      <div class="row">
+        <h4>{{ book.title}}</h4>
+      </div>
+      <div class="row">
+        <p class="col-2"> ID: {{ book.id}}</p>
+        
+      </div>
+      <div class="row">
+        <p class="col-2">Description: </p>
+        <p class="col-5 fw-bold">{{ book.desc}}</p>
+      </div>
+      
+      <div class="row mb-3">
+        <p class="col-2">Authors:</p>
+    
+        <div class="col-9">
+            <ul class="list-unstyled">
+                {% for book_author in book.authors.all %}
+                    <li class="mb-2">
+                        {{ book_author.first_name }} {{ book_author.last_name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <form action="{% url 'update_book_authors'  %}" method="post" class="d-flex gap-3 col-7">
+          {% csrf_token %}
+          <input type="hidden" name="book_id" value="{{book.id}}">
+
+          <select class="form-select bg-light" name="author_id" required>
+            <option selected>-- select an author --</option>
+            {% for author in all_authors %}
+             <option value="{{author.id}}">{{author.first_name}} {{author.last_name}}</option>
+            {% endfor %}
+          </select>
+
+          <input type="submit" class="btn btn-primary" value="Update">
+
+    </form>
+      </div>
+             
+    </div>
+</body>
+</html>
