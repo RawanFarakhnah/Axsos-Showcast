@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Show</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container p-4">
+
+      <div class="d-flex justify-content-between mb-3">
+        <h4>TV Show 2</h4>
+        <div>
+          <a href="{% url 'root' %}">Go Back</a>
+        </div>
+      </div>
+      <div class="row">
+        <p class="col-2"> Title:</p>
+        <p class="col">{{ show.title  }}</p>
+      </div>
+      <div class="row">
+        <p class="col-2">Network: </p>
+        <p class="col">{{ show.network  }}</p>
+      </div>
+      <div class="row">
+        <p class="col-2">Release Date: </p>
+        <p class="col">{{ show.release_date  }}</p>
+      </div>
+      
+      <div class="row mt-5">
+        <p>Last Updated {{ show.updated_at  }} </p>
+        <p>
+          <a href="{% url 'edit_show' show.id %}">Edit</a> | 
+          <a href="{% url 'delete_show' show.id %}">Delete</a>
+        </p>
+      </div>
+             
+    </div>
+</body>
+</html>
