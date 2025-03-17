@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    <div class="container py-4 d-flex justify-content-center gap-4">
+        <!-- Registration -->
+        <section id="registration-section" class="card shadow-lg p-4 rounded-3 bg-light w-50">
+            <h3 class="text-center mb-4">Register</h3>
+
+             <!-- Registration Form Errors -->
+             {% if messages %}
+             <div class="alert alert-danger mb-3" role="alert" id="flash-message">
+                 <ul>
+                 {% for message in messages %}
+                     {% if 'registration' in message.tags %}
+                         <li>{{ message }}</li>
+                     {% endif %}
+                 {% endfor %}
+                 </ul>
+             </div>
+            {% endif %}
+
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <div class="mb-3 row">
+                    <label for="first_name" class="col-form-label col-3">First Name</label>
+                    <div class="col-9">
+                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter your first name" aria-label="First name" >
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="last_name" class="col-form-label col-3">Last Name</label>
+                    <div class="col-9">
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter your last name" aria-label="Last name" >
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="birthdate" class="col-form-label col-3">Birth Date</label>
+                    <div class="col-9">
+                        <input type="date" class="form-control" name="birthdate" id="birthdate" placeholder="Enter your birthdate" aria-label="Birthdate" >
+                    </div>
+                </div>
+                
+                <div class="mb-3 row">
+                    <label for="email" class="col-form-label col-3">Email</label>
+                    <div class="col-9">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" aria-label="Email" >
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="password" class="col-form-label col-3">Password</label>
+                    <div class="col-9">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" aria-label="Password" >
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="confirm-password" class="col-form-label col-3">Confirm Password</label>
+                    <div class="col-9">
+                        <input type="password" class="form-control" name="confirm-password" id="confirm-password" placeholder="Confirm your password" aria-label="Confirm password" >
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-secondary btn-lg w-100">Register</button>
+                </div>
+            </form>
+        </section>
+    
+        <!-- Login -->
+        <section id="login-section" class="card shadow-lg p-4 rounded-3 bg-light w-50">
+            <h3 class="text-center mb-4">Login</h3>
+           
+            <!-- Login Form Errors -->
+            {% if messages %}
+            <div class="alert alert-danger mb-3" role="alert" id="login-flash-message">
+                <ul>
+                {% for message in messages %}
+                    {% if 'login' in message.tags %}
+                        <li>{{ message }}</li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+           {% endif %}
+
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="mb-3 row">
+                    <label for="email-login" class="col-form-label col-3">Email</label>
+                    <div class="col-9">
+                        <input type="email" class="form-control" name="email" id="email-login" placeholder="Enter your email" aria-label="Email" >
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="password-login" class="col-form-label col-3">Password</label>
+                    <div class="col-9">
+                        <input type="password" class="form-control" name="password" id="password-login" placeholder="Enter your password" aria-label="Password" >
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success btn-lg w-100">Login</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

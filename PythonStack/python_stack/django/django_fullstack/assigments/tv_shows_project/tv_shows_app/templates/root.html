@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Shows</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container p-5">
+        <div class="card rounded shadow-sm">
+             <h3 class="mb-5 p-2">All Shows</h3>
+             <table class="table text-center mb-5">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Release Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for show in all_shows %}
+                   <tr>
+                    <td>{{show.id}}</td>
+                    <td>{{show.title}}</td>
+                    <td>{{show.release_date}}</td>
+                    <th>
+                        <a href="{% url 'view_show' show.id %}">Show</a> | 
+                        <a href="{% url 'edit_show' show.id %}">Edit</a> |
+                        <a href="{% url 'delete_show' show.id %}">Delete</a>
+                    </th>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+             </table>
+
+             <div>
+                <a href="{% url 'new_show' %}" class="mb-5 p-2">Add a New Show </a>
+             </div>
+        </div>
+    </div>
+</body>
+</html>

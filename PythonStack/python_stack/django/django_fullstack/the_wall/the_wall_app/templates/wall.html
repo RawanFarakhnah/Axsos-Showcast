@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+     
+    {% load static %}
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-3 d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+            <a class="navbar-brand" href="{% url 'wall' %}">CodingDojo</a>
+            <a class="text-decoration-none text-black ms-3" href="{% url 'wall' %}">Wall</a>
+        </div>
+    
+        <div class="d-flex align-items-center gap-3">
+            <a class="text-decoration-none text-black" href="#">Welcome {{ user.first_name}} {{user.last_name }}! </a>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-danger" type="submit">Logout</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <section id="create_message">
+            <div class="card shadow bg-light bm-3">
+                <p class="p-2 mb-1">Post a message</p>
+                <form action="{% url 'create_message' %}" method="post" 
+                      class="d-flex justify-content-between flex-row align-items-center gap-3 p-2">
+                    {% csrf_token %}
+                    <textarea name="message" rows="3" id="message_post" class="form-control w-100 flex-grow-2"></textarea>
+                    <div class="flex-grow-1">
+                        <button type="submit" class="btn btn-primary" > POST </button>
+                    </div>
+                </form>
+            </div>
+            <!-- message Error -->
+            {% if messages %}
+            <div class="alert alert-danger p-4 general-errors">
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+           {% endif %}
+        </section>
+
+        <section id="display_messages py-2">
+            {% for message in all_messages %}
+            <div class="p-2">
+                <div class="d-flex flex-row justify-content-between align-items-center shadow p-2">
+                    <p class="fw-bold m-0"> 
+                        {{message.user.first_name}} {{message.user.last_name}} - 
+                        {{message.created_at | date:"F j, Y" }}
+                    </p>
+                
+                    {% if user.id == message.user.id %}
+                        <a class="btn btn-danger btn-sm" href="{% url 'delete_message' message.id %}">Delete</a>
+                    {% endif %}
+                </div>
+                
+                <div class="m-4">
+                    <p> {{ message.message }} </p>
+                    
+                    {% for comment in message.message_comments.all %}
+                    <div class="p-2" >
+                        <p class="fw-bold"> {{comment.created_by_user.first_name}} {{comment.created_by_user.last_name}} - 
+                            {{comment.created_at | date:"F j, Y" }}
+                        </p>
+                        <div class="m-4">
+                           <p>{{comment.comment}}</p>    
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div class="bg-light bm-3">
+                        <p class="p-2 mb-1">Post a comment</p>
+                        <form action="{% url 'create_comment' %}" method="post" 
+                              class="d-flex justify-content-between flex-row align-items-center gap-3 p-2">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ message.id }}" name="message_id">
+                            <textarea name="comment" rows="3" id="comment_post" class="form-control w-100 flex-grow-2"></textarea>
+                            <div class="flex-grow-1">
+                                <button type="submit" class="btn btn-success" > POST </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </section>
+      
+    </div>
+</body>
+</html>

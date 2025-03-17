@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container p-5 d-flex flex-column gap-3">
+        <section id="add-section">
+            <h3 class="mb-3">Add a new course</h3>
+            {% if messages %}
+            <div class="alert alert-danger mb-3">
+                <ul>
+                    {% for message in messages %}
+                     <li> {{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <form action="{% url 'create' %}" class="w-75" method="post" >
+                {% csrf_token %}
+                <div class="input-group mb-2 align-items-center">
+                    <label for="name" class="form-label col-4">Name</label>
+                    <input name="name" class="form-control" />
+                </div>
+                <div class="input-group mb-2 align-items-center">
+                    <label for="description" class="form-label col-4">Description</label>
+                    <input name="description" class="form-control"/>
+                </div>
+                <div class="d-flex justify-content-end">
+                     <button type="submit" class="btn btn-success">Add</button>
+                </div>
+            </form>
+        </section>
+        <section id="show-section">
+            <h3>Courses</h3>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for course in all_courses %}
+                    <tr>
+                        <td>{{ course.name }}</td>
+                        <td>{{ course.make_description.description }}</td>
+                        <td>{{ course.created_at | date:"M jS Y g:iA" }}</td>
+                        <td>
+                            <a href="{% url 'destroy' course.id %}">remove</a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+        </section>
+    </div>
+</body>
+</html>

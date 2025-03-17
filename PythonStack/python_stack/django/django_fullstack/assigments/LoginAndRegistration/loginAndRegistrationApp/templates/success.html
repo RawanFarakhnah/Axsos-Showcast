@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container py-4 d-flex justify-content-between gap-4">
+        <div>
+            <h3>Success! Welcome, {{user.first_name}}!</h3>
+            <p class="text-success"> Successfully registration (or logged in)!</p>
+        </div>
+
+        <div>
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+     
+    {% load static %}
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    <nav class="container navbar navbar-expand-lg navbar-light bg-light p-3 d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+            <p class="navbar-brand">Welcome to Savage Vintage, {{ user.first_name}} </p>
+        </div>
+    
+        <div class="d-flex align-items-center gap-3">
+            <a href="{% url 'logout' %}">Log out</a>
+        </div>
+    </nav>
+
+    <div class="container py-2">
+        <section id="create-car" class="d-flex flex-row justify-content-between align-items-center mb-5" >
+            <!-- message Error -->
+            <div>
+                {% if messages %}
+                <div class="alert alert-danger p-4 w-55 general-errors">
+                   <ul>
+                       {% for message in messages %}
+                       <li>{{ message }}</li>
+                       {% endfor %}
+                   </ul>
+                </div>
+              {% endif %}
+            </div>
+           
+           <div>
+            <a class="p-2" href="{% url 'new_car' %}"> +Post a Car for Sale</a>
+           </div>
+        </section>
+
+        <section id="display_cars py-2">
+            <h3>All Wholesale Car Deals</h3>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Model</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Dealer</th>
+                    <th scope="col">Actions</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for car in all_cars %}
+                    <tr>
+                        <td>{{ car.model }}</td>
+                        <td>{{ car.year }}</td>
+                        <td>{{ car.seller.first_name }} {{ car.seller.last_name }}</td>
+                        <td>
+                            {% if user.id == car.seller.id %}
+                            <a href="{% url 'edit' car.id %}">edit </a> |
+                            <a href="{% url 'destroy' car.id %}">remove</a>                         
+                            {% else %}
+                             <a href="{% url 'view' car.id %}">view </a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if car.status %}
+                               SOLD
+                            {% else %}
+                               For Sales
+                            {% endif %}
+                        </td>
+                      </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+        </section>
+        
+        <section id="my_purchases_orders" class="d-flex justify-content-end">
+            <a href="{% url 'purchase_orders' %}"> My Purchases Orders </a>
+        </section>
+    </div>
+</body>
+</html>

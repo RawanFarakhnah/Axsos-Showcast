@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Show</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container p-5">
+        <div class="card rounded shadow-sm bg-light p-4">
+            <div class="d-flex justify-content-between mb-3">
+                <h3> Edit Show 2</h3>
+                <div>
+                  <a href="{% url 'root' %}">Go Back</a>
+                </div>
+            </div>
+
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+               <ul class="messages">
+                {% for message in messages %}
+                 <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                  {{ message }}
+                 </li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+
+            <form action="{% url 'update_show' show.id %}" method="post">
+                {% csrf_token %}
+                
+                <!-- Title Field -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" id="title" value="{{show.title}}" required>
+                </div>
+    
+                <!-- Network & Release Date Fields -->
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="network" class="form-label">Network</label>
+                        <input type="text" class="form-control" name="network" id="network" value="{{show.network}}" required>
+                    </div>
+                    <div class="col">
+                        <label for="release_date" class="form-label">Release Date</label>
+                        <input type="date" class="form-control" name="release_date" id="release_date" value="{{show.release_date}}" required>
+                    </div>
+                </div>
+    
+                <!-- Description Field -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" rows="4" name="description" id="description"> {{show.description}} </textarea>
+                </div>
+    
+                <!-- Submit Button -->
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary px-4"> Update</button>
+                </div>
+            </form>
+
+        </div>
+    </div>    
+</body>
+</html>

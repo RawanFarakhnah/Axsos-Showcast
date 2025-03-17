@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+
+    <nav class="container navbar navbar-expand-lg navbar-light bg-light p-3 d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+            <h4>Post a Car For Sale</h4>
+        </div>
+    
+        <div class="d-flex align-items-center gap-3">
+            <a href="{% url 'logout' %}">Log out</a>
+        </div>
+    </nav>
+    <div class="container py-2">
+        <section id="cancle-section" class="d-flex flex-row justify-content-between align-items-center mb-5" >
+            <!-- message Error -->
+            <div>
+                {% if messages %}
+                <div class="alert alert-danger p-4 w-55 general-errors">
+                   <ul>
+                       {% for message in messages %}
+                       <li>{{ message }}</li>
+                       {% endfor %}
+                   </ul>
+                </div>
+              {% endif %}
+            </div>
+           
+           <div>
+            <a class="p-2" href="{% url 'cars' %}"> Cancel</a>
+           </div>
+        </section>
+
+        <section id="create_car">
+            <div class="card rounded shadow-sm bg-light p-4 w-60">    
+                <form action="{% url 'update_car' car.id %}" method="post">
+                    {% csrf_token %}
+                    
+                    <!-- price Field -->
+                    <div class="input-group mb-2 align-items-center">
+                        <label for="price" class="form-label col-3">Price</label>
+                        <input type="number" class="form-control" value="{{ car.price }}" name="price" id="price">
+                    </div>
+        
+                    <!-- Model Fields -->
+                    <div class="input-group mb-2 align-items-center">
+                       <label for="model" class="form-label col-3">Model</label>
+                       <input type="text" class="form-control" value="{{ car.model }}" name="model" id="model">
+                    </div>
+
+                    <!-- Make Fields-->
+                    <div class="input-group mb-2 align-items-center">
+                       <label for="make" class="form-label col-3">Make</label>
+                       <input type="text" class="form-control" value="{{ car.make }}" name="make" id="make">
+                    </div>
+        
+                   <!-- Year Field -->
+                    <div class="input-group mb-2 align-items-center">
+                        <label for="year" class="form-label col-3">Year</label>
+                        <input type="year" class="form-control" value="{{ car.year }}"  name="year" id="year">   
+                    </div>
+
+                    <!-- Seller Contact Fields-->
+                    <div class="input-group mb-2 align-items-center">
+                       <label for="seller_contact" class="form-label col-3">Seller Contact</label>
+                       <input type="text" class="form-control" value="{{ car.seller_contact }}"  name="seller_contact" id="seller_contact">
+                    </div>
+
+                     <!-- Description Field -->
+                    <div class="input-group mb-2 align-items-center">
+                        <label for="description" class="form-label col-3">Description</label>
+                        <textarea class="form-control" rows="4" name="description" id="description">{{ car.description }}</textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-secondary px-4"> Submit</button>
+                    </div>
+                </form>
+    
+            </div>
+        </section>
+
+
+    </div>   
+</body>
+</html>

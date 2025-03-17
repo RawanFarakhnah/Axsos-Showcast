@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>destroy</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container d-flex flex-column justify-content-center p-5">
+        <h3 class="mb-4">Are you sure you want to delete the following course?</h3>
+        <div class="input-group mb-2">
+             <p class="col-3"> Name: </p>
+             <p class="ms-3"> {{ course.name }}</p>
+        </div>
+        <div class="input-group mb-2">
+            <p class="col-3"> Description: </p>
+            <p class="ms-3"> {{ course.description }}</p>
+       </div>
+       <div class="w-50 row justify-content-center align-items-center">
+           <a class="btn btn-secondary col-3" href="{% url 'root' %}" >No </a>
+           <form action="{% url 'remove' course.id %}" method="post" class="col w-100 ms-2">
+              {% csrf_token %}
+              <button class="btn btn-danger" type="submit">Yes! I wont to delete this</button>
+           </form>
+       </div>
+       
+    </div>
+</body>
+</html>
